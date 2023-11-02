@@ -11,10 +11,9 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import plot_tree
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import confusion_matrix
-from sklearn.metrics import roc_curve, roc_auc_score
+from sklearn.neighbors import KNeighborsClassifier
 data = pd.read_csv('data1.csv')
-cols = data.columns
-filter = ''
+
 def linearRegression():
     x = data[['gpa','ec','ld']]
     y = data['sat']
@@ -31,7 +30,7 @@ def linearRegression():
     #heatmap
     corr_matrix = x.corr()
     sns.heatmap(corr_matrix, annot=True,)
-    plt.title('linear regression posttraining')
+    plt.title('linear regression correlation')
     plt.show()
     
     #evaluate model accuracy
@@ -72,9 +71,15 @@ def logisticRegression():
     #heatmap
     after_corr_matrix = x.corr()
     sns.heatmap(after_corr_matrix, annot=True)
-    plt.title('Logistic Regression: post-Training')
+    plt.title('Logistic Regression correlation')
     plt.show()
-    
+    #confusion matrix
+    conf_matrix = confusion_matrix(y_test, y_test_predict)
+    sns.heatmap(conf_matrix, annot=True, fmt='d', cmap='Blues')
+    plt.xlabel('Predicted')
+    plt.ylabel('Actual')
+    plt.title('Confusion Matrix')
+    plt.show()
     #evaluate model accuracy
     acc = accuracy_score(y_test,y_test_predict)
     print(f"accuracyscore {acc}")
@@ -107,15 +112,25 @@ def randomForest():
     rf.fit(x_train,y_train)
     y_train_predict = rf.predict(x_train)
     y_test_predict = rf.predict(x_test)
-    #visualize
-    """
-    plt.figure(figsize=(12, 8))
-    for tree in rf.estimators_:
-        plot_tree(tree, filled=True)
-        plt.show()
-    """
+
     # Get feature importances
     feature_importances = rf.feature_importances_
+
+    print("Important Features")
+    important_features = pd.DataFrame({'Feature': x.columns, 'Importance': feature_importances})
+    print(important_features)
+
+# Sort the DataFrame by importance
+    important_features = important_features.sort_values(by='Importance', ascending=False)
+
+# Plot feature importances
+    plt.figure(figsize=(10, 6))
+    plt.bar(important_features['Feature'], important_features['Importance'])
+    plt.xlabel('Features')
+    plt.ylabel('Importance')
+    plt.title('RandomForest Feature Importances')
+    plt.xticks(rotation=45)
+    plt.show()
     
     # Create a DataFrame to display feature importances
     print("Important Features")
@@ -125,7 +140,7 @@ def randomForest():
     #heatmap
     after_corr_matrix = x.corr()
     sns.heatmap(after_corr_matrix, annot=True)
-    plt.title('RandomForest:post-Training')
+    plt.title('RandomForest Correlation')
     plt.show()
     
     #evaluate model accuracy
@@ -136,18 +151,43 @@ def randomForest():
     print("Confusion Matrix:")
     print(conf_matrix)
     
-#def multipleRegressionAnalysis:
+def knn():
+    #set x and y
+    
+    y = data['admission_status']
+    x = data[['gpa','sat','ec', 'ld']]
+
+    # split into test and train data
+    
+    x_train, x_test, y_train, y_test = train_test_split(x,y,test_size = 0.4, random_state = 0)
+# Create and fit a K-NN model
+    knn = KNeighborsClassifier(n_neighbors=5)
+    knn.fit(x_train, y_train)
+
+# Predict admission status
+    y_test_pred = knn.predict(x_test)
+
+    accuracy = accuracy_score(y_test, y_test_pred)
+    print(f"Accuracy: {accuracy}")
+
+    confusion = confusion_matrix(y_test, y_test_pred)
+    sns.heatmap(confusion, annot=True, fmt="d", cmap="Blues")
+    plt.xlabel("Predicted")
+    plt.ylabel("True")
+    plt.title("Confusion Matrix")
+    plt.show()
+
+#grid search or random search
+#def gridsearch():
     
 def statsSummary():
     print("stats summary")
     summary = data.describe()
     print(summary)
     
-
+#main 
 linearRegression()
 logisticRegression()
 randomForest()
+knn()
 statsSummary()
-#print(correlationAnalysis('gpa','sat'))
-#visualizeData()
-
