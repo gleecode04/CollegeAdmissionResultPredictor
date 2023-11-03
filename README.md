@@ -14,16 +14,15 @@
     -dependent variable: admission status( accepted , waitlisted, rejected.)
 
   2. Statistical Analysis
-
-  -Linear Regression:
+  <h1>Linear Regression</h1>
   <img src = "imgs_readme/lr_corr_heatmap.png"></img>
   <img src = "imgs_readme/lr_graph.png"></img>
-  -Logistic Regression:
+  <h1>Logistic Regression</h1>
   <img src = "imgs_readme/LrConfusionMatrix.png" ></img>
-  -RandomForest:
+  <h1>RandomForest</h1>
   <img src = "imgs_readme/RandomForestResults.png"></img>
-  -ImportantFeatureAnalysis
-  <img src = "imgs_readme/FeatureImportancesRf"></img>
-  -StatsSummary:
-  <I'mg src= "imgs_readme/stats.png"></img>
+  <h1>ImportantFeatureAnalysis</h1>
+  <img src = "imgs_readme/FeatureImportancesRf.png"></img>
+  <h1>Summary Statistics</h1>
+  <img src= "imgs_readme/stats.png"></img>
    <pre>
