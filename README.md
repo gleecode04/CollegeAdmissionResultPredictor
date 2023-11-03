@@ -16,12 +16,14 @@
   2. Statistical Analysis
 
   -Linear Regression:
-  <img src = "imgs_readme/lr_corr_heatmap.png" caption = "linear regression correlation heatmap"></img>
-  <img src = "imgs_readme/lr_graph.png" caption = "linear regression line"></img>
-  -Logistic Regression
-  -RandomForest
-  -DecisionTrees
+  <img src = "imgs_readme/lr_corr_heatmap.png"></img>
+  <img src = "imgs_readme/lr_graph.png"></img>
+  -Logistic Regression:
+  <img src = "imgs_readme/LrConfusionMatrix.png" ></img>
+  -RandomForest:
+  <img src = "imgs_readme/RandomForestResults.png"></img>
   -ImportantFeatureAnalysis
-
-   5. Issues / Potential Developments.
+  <img src = "imgs_readme/FeatureImportancesRf"></img>
+  -StatsSummary:
+  <I'mg src= "imgs_readme/stats.png"></img>
    <pre>
