@@ -1,23 +1,24 @@
 # CollegeAdmissionResultPredictor
 
--College admissions is a confusing process with so many factors to consider.
--To help underclassmen strategize their highschool years, I analyzed what factors make a student successful in college admission.
+<h3>-College admissions is a confusing process with so many factors to consider.
+-To help underclassmen strategize their highschool years, I analyzed what factors make a student successful in college admission.</h3>
 
 -Procedure:
-  0. Deciding independent variables:
+  1.Data preprocessing:
+    i)data
+    accessed school's internal database, chose 200+ alumni data points.
+    quantified the rigor of extracucciulars and leadership skills with a formula.
 
-  1.Preprocessing Data:
+   independent variables: sat score/act score, gpa, rigor of extracurriculars, leadership status
+   removed variables: legacy status, quality of essays/rec letters(confidential information)
+   dependent variable : admisison status : accepted , waitlisted, rejected.
 
-  2. Creating a quantification schema:
-
-  3. Statistical Analysis
+  2. Statistical Analysis
 
   -Linear Regression
   -Logistic Regression
   -RandomForest
   -DecisionTrees
   -ImportantFeatureAnalysis
-
-   4. Results
 
    5. Issues / Potential Developments.
