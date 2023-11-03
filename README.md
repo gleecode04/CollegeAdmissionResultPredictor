@@ -15,7 +15,9 @@
 
   2. Statistical Analysis
 
-  -Linear Regression
+  -Linear Regression:
+  <img src = "lr_corr_heatmap.png" caption = "linear regression correlation heatmapo">
+  <img src = "lr_graph.png" caption = "linear regression line">
   -Logistic Regression
   -RandomForest
   -DecisionTrees
