@@ -1,8 +1,8 @@
 # CollegeAdmissionResultPredictor
 
-<h3>-College admissions is a confusing process with so many factors to consider.
+<h3>-College admissions is a confusing process with so many factors to consider.<br>
 -To help underclassmen strategize their highschool years, I analyzed what factors make a student successful in college admission.</h3>
-
+<pre>
 -Procedure:
   1.Data preprocessing:
     i)data
@@ -22,3 +22,4 @@
   -ImportantFeatureAnalysis
 
    5. Issues / Potential Developments.
+   <pre>
